@@ -3,245 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Nada</title>
+<title>Apologize Nada ❤️</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+body{
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    background:rgba(255,255,255,0.9);
+    padding:40px;
+    border-radius:25px;
+    width:90%;
+    max-width:500px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#ff4f7b;
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+p{
+    color:#444;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+button{
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:0.3s;
+}
+
+#yes{
+    background:#ff4f7b;
+    color:white;
+}
+
+#no{
+    background:#ddd;
+}
+
+#message{
+    margin-top:25px;
+    font-size:1.2rem;
+    font-weight:bold;
+    color:#ff4f7b;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:20px;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<div class="stars"></div>
+<div class="container">
 
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mp3">
-</audio>
-
-<section class="hero">
-    <h1>Happy Birthday Nada ✨</h1>
+    <h1>Dear Nada ❤️</h1>
 
     <p>
-        A small gift from someone who thinks you deserve
-        a truly special birthday.
+        I know I may have hurt you, and I'm truly sorry.
+        You mean a lot to me, and I never intended to make you feel sad.
+        If I could go back and change things, I would.
+        I hope you'll find it in your heart to forgive me.
     </p>
 
-    <button onclick="startExperience()">
-        Begin
-    </button>
-</section>
-
-<section class="hidden section" id="portrait">
-    <h2>Your Portrait 🌸</h2>
-
-    <img src="images/nada-sketch.jpg" class="portrait">
-
-    <p>
-        Some people leave an impression without even trying.
-        This sketch is a small reminder of how beautifully
-        you do that.
-    </p>
-</section>
-
-<section class="hidden section" id="qualities">
-    <h2>Things Worth Appreciating</h2>
-
-    <div class="cards">
-        <div class="card">Your smile brightens a room.</div>
-        <div class="card">Your kindness never goes unnoticed.</div>
-        <div class="card">Your determination is inspiring.</div>
-        <div class="card">Your presence feels comforting.</div>
+    <div class="buttons">
+        <button id="yes">I Forgive You ❤️</button>
+        <button id="no">Not Yet 😔</button>
     </div>
-</section>
 
-<section class="hidden section" id="letter">
-    <h2>A Birthday Letter 💌</h2>
+    <div id="message"></div>
 
-    <div class="letter-box">
+</div>
 
-Dear Nada,
+<script>
 
-Happy Birthday.
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const message = document.getElementById("message");
 
-I hope this year brings happiness, growth,
-success and beautiful memories.
+let scale = 1;
 
-Thank you for being someone worth admiring.
+yesBtn.addEventListener("click", () => {
+    message.innerHTML =
+    "Thank you Nada ❤️<br>You have no idea how much this means to me.";
+});
 
-I genuinely appreciate the positivity,
-kindness and warmth you bring into the lives
-of those around you.
+noBtn.addEventListener("mouseover", () => {
+    scale += 0.2;
+    yesBtn.style.transform = `scale(${scale})`;
 
-May all your dreams slowly become reality.
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
 
-And may this birthday be the beginning of
-your best year yet.
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
 
-— Ryan
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20+15)+"px";
 
-    </div>
-</section>
+    document.body.appendChild(heart);
 
-<section class="hidden section" id="final">
-    <h2>One Final Wish ✨</h2>
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
 
-    <p>
-        May life surprise you with happiness,
-        opportunities and countless reasons
-        to smile.
-    </p>
+setInterval(createHeart,500);
 
-    <button onclick="showMessage()">
-        See Surprise
-    </button>
-
-    <div id="surprise" class="hidden">
-        ❤️
-
-        The world is a little brighter
-        because you're in it.
-
-        Happy Birthday Nada.
-
-        — Ryan
-    </div>
-</section>
-
-<script src="script.js"></script>
+</script>
 
 </body>
 </html>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-background:#09111f;
-color:white;
-font-family:Poppins,sans-serif;
-overflow-x:hidden;
-}
-
-.hero,
-.section{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-}
-
-h1{
-font-family:'Dancing Script',cursive;
-font-size:4rem;
-margin-bottom:20px;
-}
-
-h2{
-font-family:'Dancing Script',cursive;
-font-size:3rem;
-margin-bottom:20px;
-color:#ffd6e7;
-}
-
-p{
-max-width:700px;
-line-height:1.8;
-}
-
-button{
-padding:14px 30px;
-border:none;
-border-radius:40px;
-cursor:pointer;
-font-size:1rem;
-margin-top:20px;
-background:#ff8fb1;
-color:white;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-.hidden{
-display:none;
-}
-
-.portrait{
-width:300px;
-max-width:90%;
-border-radius:20px;
-margin:20px;
-box-shadow:0 0 30px rgba(255,255,255,.2);
-}
-
-.cards{
-display:grid;
-gap:20px;
-max-width:700px;
-}
-
-.card{
-background:rgba(255,255,255,.08);
-padding:20px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-}
-
-.letter-box{
-max-width:700px;
-white-space:pre-line;
-background:rgba(255,255,255,.08);
-padding:30px;
-border-radius:20px;
-line-height:2;
-}
-
-#surprise{
-margin-top:30px;
-font-size:1.4rem;
-white-space:pre-line;
-}
-
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(white 1px,transparent 1px);
-background-size:50px 50px;
-opacity:.3;
-z-index:-1;
-}
-function startExperience(){
-
-document.getElementById("music").play();
-
-document.getElementById("portrait").style.display="flex";
-
-setTimeout(()=>{
-document.getElementById("qualities").style.display="flex";
-},1000);
-
-setTimeout(()=>{
-document.getElementById("letter").style.display="flex";
-},2000);
-
-setTimeout(()=>{
-document.getElementById("final").style.display="flex";
-},3000);
-
-window.scrollTo({
-top:window.innerHeight,
-behavior:"smooth"
-});
-}
-
-function showMessage(){
-document.getElementById("surprise").style.display="block";
-}
