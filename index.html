@@ -1,18 +1,247 @@
-<html>
-  <head>
-    <title>Invitation</title>
-    <style type="text/css">
-      body {
-        background-image: url('invitation-bg.jpg');
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-position: top center;
-      }      
-    </style>
-  </head>
-  <body>
-    <center>
-      <h1>Invitation from Ryan Renjith!</h1>
-    </center>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nada</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<section class="hero">
+    <h1>Happy Birthday Nada ✨</h1>
+
+    <p>
+        A small gift from someone who thinks you deserve
+        a truly special birthday.
+    </p>
+
+    <button onclick="startExperience()">
+        Begin
+    </button>
+</section>
+
+<section class="hidden section" id="portrait">
+    <h2>Your Portrait 🌸</h2>
+
+    <img src="images/nada-sketch.jpg" class="portrait">
+
+    <p>
+        Some people leave an impression without even trying.
+        This sketch is a small reminder of how beautifully
+        you do that.
+    </p>
+</section>
+
+<section class="hidden section" id="qualities">
+    <h2>Things Worth Appreciating</h2>
+
+    <div class="cards">
+        <div class="card">Your smile brightens a room.</div>
+        <div class="card">Your kindness never goes unnoticed.</div>
+        <div class="card">Your determination is inspiring.</div>
+        <div class="card">Your presence feels comforting.</div>
+    </div>
+</section>
+
+<section class="hidden section" id="letter">
+    <h2>A Birthday Letter 💌</h2>
+
+    <div class="letter-box">
+
+Dear Nada,
+
+Happy Birthday.
+
+I hope this year brings happiness, growth,
+success and beautiful memories.
+
+Thank you for being someone worth admiring.
+
+I genuinely appreciate the positivity,
+kindness and warmth you bring into the lives
+of those around you.
+
+May all your dreams slowly become reality.
+
+And may this birthday be the beginning of
+your best year yet.
+
+— Ryan
+
+    </div>
+</section>
+
+<section class="hidden section" id="final">
+    <h2>One Final Wish ✨</h2>
+
+    <p>
+        May life surprise you with happiness,
+        opportunities and countless reasons
+        to smile.
+    </p>
+
+    <button onclick="showMessage()">
+        See Surprise
+    </button>
+
+    <div id="surprise" class="hidden">
+        ❤️
+
+        The world is a little brighter
+        because you're in it.
+
+        Happy Birthday Nada.
+
+        — Ryan
+    </div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
 </html>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#09111f;
+color:white;
+font-family:Poppins,sans-serif;
+overflow-x:hidden;
+}
+
+.hero,
+.section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+font-size:4rem;
+margin-bottom:20px;
+}
+
+h2{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+margin-bottom:20px;
+color:#ffd6e7;
+}
+
+p{
+max-width:700px;
+line-height:1.8;
+}
+
+button{
+padding:14px 30px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-size:1rem;
+margin-top:20px;
+background:#ff8fb1;
+color:white;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.hidden{
+display:none;
+}
+
+.portrait{
+width:300px;
+max-width:90%;
+border-radius:20px;
+margin:20px;
+box-shadow:0 0 30px rgba(255,255,255,.2);
+}
+
+.cards{
+display:grid;
+gap:20px;
+max-width:700px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+padding:20px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+}
+
+.letter-box{
+max-width:700px;
+white-space:pre-line;
+background:rgba(255,255,255,.08);
+padding:30px;
+border-radius:20px;
+line-height:2;
+}
+
+#surprise{
+margin-top:30px;
+font-size:1.4rem;
+white-space:pre-line;
+}
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(white 1px,transparent 1px);
+background-size:50px 50px;
+opacity:.3;
+z-index:-1;
+}
+function startExperience(){
+
+document.getElementById("music").play();
+
+document.getElementById("portrait").style.display="flex";
+
+setTimeout(()=>{
+document.getElementById("qualities").style.display="flex";
+},1000);
+
+setTimeout(()=>{
+document.getElementById("letter").style.display="flex";
+},2000);
+
+setTimeout(()=>{
+document.getElementById("final").style.display="flex";
+},3000);
+
+window.scrollTo({
+top:window.innerHeight,
+behavior:"smooth"
+});
+}
+
+function showMessage(){
+document.getElementById("surprise").style.display="block";
+}
