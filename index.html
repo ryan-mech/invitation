@@ -1,164 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apologize Nada ❤️</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    overflow:hidden;
-}
-
-.container{
-    background:rgba(255,255,255,0.9);
-    padding:40px;
-    border-radius:25px;
-    width:90%;
-    max-width:500px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-}
-
-h1{
-    color:#ff4f7b;
-    margin-bottom:20px;
-    font-size:2rem;
-}
-
-p{
-    color:#444;
-    margin-bottom:30px;
-    line-height:1.6;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
-
-button{
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:1rem;
-    transition:0.3s;
-}
-
-#yes{
-    background:#ff4f7b;
-    color:white;
-}
-
-#no{
-    background:#ddd;
-}
-
-#message{
-    margin-top:25px;
-    font-size:1.2rem;
-    font-weight:bold;
-    color:#ff4f7b;
-}
-
-.heart{
-    position:absolute;
-    color:red;
-    font-size:20px;
-    animation:float 5s linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-100px);
-        opacity:0;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-    <h1>Dear Nada ❤️</h1>
-
-    <p>
-        I know I may have hurt you, and I'm truly sorry.
-        You mean a lot to me, and I never intended to make you feel sad.
-        If I could go back and change things, I would.
-        I hope you'll find it in your heart to forgive me.
-    </p>
-
-    <div class="buttons">
-        <button id="yes">I Forgive You ❤️</button>
-        <button id="no">Not Yet 😔</button>
-    </div>
-
-    <div id="message"></div>
-
-</div>
-
-<script>
-
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
-const message = document.getElementById("message");
-
-let scale = 1;
-
-yesBtn.addEventListener("click", () => {
-    message.innerHTML =
-    "Thank you Nada ❤️<br>You have no idea how much this means to me.";
-});
-
-noBtn.addEventListener("mouseover", () => {
-    scale += 0.2;
-    yesBtn.style.transform = `scale(${scale})`;
-
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-
-    noBtn.style.position = "absolute";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-});
-
-function createHeart(){
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (Math.random()*20+15)+"px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },5000);
-}
-
-setInterval(createHeart,500);
-
-</script>
-
-</body>
+<html>
+  <head>
+    <title>Invitation</title>
+    <style type="text/css">
+      body {
+        background-image: url('invitation-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: top center;
+      }      
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>Invitation from Ryan Renjith!</h1>
+    </center>
+  </body>
 </html>
