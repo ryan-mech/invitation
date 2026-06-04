@@ -1,18 +1,316 @@
-<html>
-  <head>
-    <title>Invitation</title>
-    <style type="text/css">
-      body {
-        background-image: url('invitation-bg.jpg');
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-position: top center;
-      }      
-    </style>
-  </head>
-  <body>
-    <center>
-      <h1>Invitation from Ryan Renjith!</h1>
-    </center>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Nada ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#fce4ec,#f8bbd0,#f3e5f5);
+overflow-x:hidden;
+color:#444;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+position:relative;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:4rem;
+color:#d63384;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:1.2rem;
+max-width:700px;
+line-height:1.8;
+}
+
+.age-badge{
+margin-top:20px;
+width:120px;
+height:120px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:3rem;
+font-weight:bold;
+color:#d63384;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.section{
+padding:80px 20px;
+text-align:center;
+}
+
+.section h2{
+font-family:'Great Vibes',cursive;
+font-size:3rem;
+margin-bottom:30px;
+color:#d63384;
+}
+
+.frame{
+background:url('birthday-frame.webp');
+background-size:cover;
+background-position:center;
+width:350px;
+height:500px;
+margin:auto;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:35px;
+}
+
+.frame img{
+width:100%;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+.message{
+max-width:850px;
+margin:auto;
+font-size:1.15rem;
+line-height:2;
+padding:30px;
+background:white;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.letter{
+font-family:'Great Vibes',cursive;
+font-size:2rem;
+color:#d63384;
+margin-bottom:20px;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#fff;
+font-size:1rem;
+}
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+overflow:hidden;
+}
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 10s linear infinite;
+opacity:0.6;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:0.7;
+}
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
+}
+
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#d63384;
+color:white;
+border:none;
+padding:15px 20px;
+border-radius:50px;
+cursor:pointer;
+font-size:16px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+</style>
+</head>
+<body>
+
+<div class="hearts"></div>
+
+<section class="hero">
+
+<h1>Happy 18th Birthday Nada ❤️</h1>
+
+<div class="age-badge">18</div>
+
+<p class="subtitle">
+Today is not just another birthday.
+Today marks the beginning of a beautiful new chapter —
+the day you officially step into adulthood.
+May this year bring you happiness, growth, success,
+and countless reasons to smile.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Your Beautiful Portrait</h2>
+
+<div class="frame">
+<img src="nada-drawing.jpg" alt="Nada">
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>A Letter For You</h2>
+
+<div class="message">
+
+<div class="letter">Dear Nada,</div>
+
+<p>
+Happy 18th Birthday.
+Eighteen is a special milestone —
+a moment where childhood memories and future dreams meet.
+</p>
+
+<br>
+
+<p>
+You deserve a life filled with laughter,
+peace, adventure, meaningful friendships,
+and all the success your heart wishes for.
+</p>
+
+<br>
+
+<p>
+As you begin this new chapter,
+never forget how unique, strong,
+and valuable you are.
+The world becomes a little brighter
+because you are in it.
+</p>
+
+<br>
+
+<p>
+May every step you take lead you closer
+to your dreams and may every year ahead
+be even more beautiful than the one before.
+</p>
+
+<br>
+
+<p>
+Thank you for being you.
+Enjoy your special day and cherish every moment.
+</p>
+
+<br>
+
+<p>
+✨ Happy Birthday Once Again ✨
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with ❤️ for Nada's Special 18th Birthday
+
+</footer>
+
+<audio id="music" loop>
+<source src="birthday-music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+🎵 Play Music
+</button>
+
+<script>
+
+const music=document.getElementById('music');
+let playing=false;
+
+function toggleMusic(){
+
+if(!playing){
+music.play();
+document.querySelector('.music-btn').innerHTML='⏸ Pause Music';
+playing=true;
+}
+else{
+music.pause();
+document.querySelector('.music-btn').innerHTML='🎵 Play Music';
+playing=false;
+}
+}
+
+const hearts=document.querySelector('.hearts');
+
+for(let i=0;i<30;i++){
+
+let heart=document.createElement('div');
+
+heart.classList.add('heart');
+
+heart.innerHTML='❤';
+
+heart.style.left=Math.random()*100+'%';
+
+heart.style.animationDuration=
+(5+Math.random()*10)+'s';
+
+heart.style.fontSize=
+(15+Math.random()*20)+'px';
+
+heart.style.animationDelay=
+Math.random()*5+'s';
+
+hearts.appendChild(heart);
+
+}
+
+</script>
+
+</body>
 </html>
