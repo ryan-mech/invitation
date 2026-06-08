@@ -1,18 +1,401 @@
-<html>
-  <head>
-    <title>Invitation</title>
-    <style type="text/css">
-      body {
-        background-image: url('invitation-bg.jpg');
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-position: top center;
-      }      
-    </style>
-  </head>
-  <body>
-    <center>
-      <h1>Invitation from Ryan Renjith!</h1>
-    </center>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Nada ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- BACKGROUND MUSIC -->
+<!-- Starts only after I Forgive You -->
+<!-- ========================= -->
+
+<audio id="bgMusic" loop>
+    <source src="Music/the_mountain-happy-birthday-508020.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ========================= -->
+<!-- PAGE 1 : APOLOGY -->
+<!-- ========================= -->
+
+<section id="apologyPage" class="scene active">
+
+    <div class="card">
+
+        <h1>Dear Nada ❤️</h1>
+
+        <p>
+            I know I may have hurt you, and I'm truly sorry.
+            You mean a lot to me, and I never intended to make you feel sad.
+            If I could go back and change things, I would.
+            I hope you'll find it in your heart to forgive me.
+        </p>
+
+        <div class="buttons">
+
+            <button id="yesBtn">
+                I Forgive You ❤️
+            </button>
+
+            <button id="noBtn">
+                Not Yet 😔
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 2 : BIRTHDAY INTRO -->
+<!-- ========================= -->
+
+<section id="birthdayIntro" class="scene">
+
+    <div class="centerBox">
+
+        <h1 class="bigTitle">
+
+            Happy 18th Birthday Nada ❤️
+
+        </h1>
+
+        <p class="subtitle">
+
+            Today marks a very special milestone.
+
+            Eighteen years of memories,
+            growth, laughter, lessons,
+            and countless moments that have shaped
+            the amazing person you are today.
+
+        </p>
+
+        <button id="startJourney">
+
+            Begin The Journey ✨
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 3 : 18 REASONS -->
+<!-- ========================= -->
+
+<section id="reasonsPage" class="scene">
+
+    <div class="reasonsContainer">
+
+        <h1>
+
+            18 Reasons You're Special ❤️
+
+        </h1>
+
+        <div id="reasonsBox"></div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 4 : MEMORY LANE -->
+<!-- ========================= -->
+
+<section id="memoryLane" class="scene">
+
+    <div class="memoryContainer">
+
+        <img
+            id="memoryImage"
+            src=""
+            alt="Memory">
+
+        <div id="memoryCaption"></div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 5 : LETTER -->
+<!-- ========================= -->
+
+<section id="letterPage" class="scene">
+
+    <div class="letterCard">
+
+        <h1>
+
+            A Small Letter ❤️
+
+        </h1>
+
+        <div id="typedLetter"></div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 6 : FINAL PORTRAIT -->
+<!-- ========================= -->
+
+<section id="finalBirthday" class="scene">
+
+    <div class="portraitContainer">
+
+        <img
+            src="Images/20260529_135442-IMG_STYLE.jpg"
+            class="portrait"
+            alt="Portrait">
+
+        <h1>
+
+            Happy Birthday Nada ❤️
+
+        </h1>
+
+    </div>
+
+</section>
+<!-- ========================= -->
+<!-- PAGE 7 : THE END -->
+<!-- ========================= -->
+
+<section id="theEnd" class="scene">
+
+    <div class="centerBox">
+
+        <h1 class="endText">
+
+            The End
+
+        </h1>
+
+        <button id="albumBtn">
+
+            One Last Thing... 📖
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 8 : LOADING -->
+<!-- ========================= -->
+
+<section id="loadingPage" class="scene">
+
+    <div class="centerBox">
+
+        <h2>
+
+            Opening Memory Album...
+
+        </h2>
+
+        <div class="loader"></div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 9 : MEMORY ALBUM -->
+<!-- ========================= -->
+
+<section id="albumPage" class="scene">
+
+    <h1 class="albumTitle">
+
+        Memory Album 📸
+
+    </h1>
+
+    <div id="albumContainer">
+
+        <!-- PHOTO 1 -->
+
+        <div class="polaroid"
+             data-img="Images/IMG-20220918-WA0010.jpg">
+
+            <img src="Images/IMG-20220918-WA0010.jpg">
+
+            <p>
+                The very moment two strangers became a small part of each other's story.
+            </p>
+
+        </div>
+
+        <!-- PHOTO 2 -->
+
+        <div class="polaroid"
+             data-img="Images/Screenshot_20220902-114252_WhatsApp.jpg">
+
+            <img src="Images/Screenshot_20220902-114252_WhatsApp.jpg">
+
+            <p>
+                Our first Onam together. The beginning of a beautiful journey.
+            </p>
+
+        </div>
+
+        <!-- PHOTO 3 -->
+
+        <div class="polaroid"
+             data-img="Images/IMG-20231129-WA0002.jpg">
+
+            <img src="Images/IMG-20231129-WA0002.jpg">
+
+            <p>
+                The first trip. A day filled with laughter, adventures, and memories.
+            </p>
+
+        </div>
+
+        <!-- PHOTO 4 -->
+
+        <div class="polaroid"
+             data-img="Images/IMG-20240216-WA0002.jpg">
+
+            <img src="Images/IMG-20240216-WA0002.jpg">
+
+            <p>
+                Just one of those ordinary moments that somehow became unforgettable.
+            </p>
+
+        </div>
+
+        <!-- PHOTO 5 -->
+
+        <div class="polaroid"
+             data-img="Images/Screenshot_2024-12-22-12-06-33-718.jpeg">
+
+            <img src="Images/Screenshot_2024-12-22-12-06-33-718.jpeg">
+
+            <p>
+                Christmas, smiles, friends, and memories.
+            </p>
+
+        </div>
+
+        <!-- PHOTO 6 -->
+
+        <div class="polaroid"
+             data-img="Images/20250829_131253.jpg">
+
+            <img src="Images/20250829_131253.jpg">
+
+            <p>
+                Our final Onam at school.
+            </p>
+
+        </div>
+
+        <!-- PHOTO 7 -->
+
+        <div class="polaroid"
+             data-img="Images/IMG-20251006-WA0295.jpg">
+
+            <img src="Images/IMG-20251006-WA0295.jpg">
+
+            <p>
+                A day when all of us were together.
+            </p>
+
+        </div>
+
+        <!-- PHOTO 8 -->
+
+        <div class="polaroid"
+             data-img="Images/IMG-20260104-WA0010.jpg">
+
+            <img src="Images/IMG-20260104-WA0010.jpg">
+
+            <p>
+                Forming Capacity 😅
+            </p>
+
+        </div>
+
+        <!-- PHOTO 9 -->
+
+        <div class="polaroid"
+             data-img="Images/IMG-20260112-WA0018.jpg">
+
+            <img src="Images/IMG-20260112-WA0018.jpg">
+
+            <p>
+                Oru normal lab memory made a 1000 folds more memorable by someone special 💞
+            </p>
+
+        </div>
+
+        <!-- PHOTO 10 -->
+
+        <div class="polaroid"
+             data-img="Images/IMG-20260131-WA0000.jpg">
+
+            <img src="Images/IMG-20260131-WA0000.jpg">
+
+            <p>
+                🫣😅🤐 UK when
+            </p>
+
+        </div>
+
+        <!-- PHOTO 11 -->
+
+        <div class="polaroid"
+             data-img="Images/20260129_095211.jpg">
+
+            <img src="Images/20260129_095211.jpg">
+
+            <p>
+                Farewell. The end of one chapter. The beginning of another.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FULLSCREEN IMAGE VIEWER -->
+<!-- ========================= -->
+
+<div id="viewer">
+
+    <span id="closeViewer">
+
+        ✖
+
+    </span>
+
+    <img id="viewerImage">
+
+</div><!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="script.js"></script>
+
+</body>
+  </html>
