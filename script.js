@@ -20,6 +20,8 @@ const startJourney = document.getElementById("startJourney");
 const albumBtn = document.getElementById("albumBtn");
 
 const bgMusic = document.getElementById("bgMusic");
+// 🎵 Music settings (ADD RIGHT AFTER const declarations)
+bgMusic.volume = 0.5;
 
 const reasonsBox = document.getElementById("reasonsBox");
 
@@ -74,7 +76,7 @@ noBtn.addEventListener("mouseover", () => {
 
 scale += 0.15;
 
-yesBtn.style.transform = scale(${scale})`;
+yesBtn.style.transform = scale(${scale});
 
 const x = Math.random() * (window.innerWidth - 120);
 const y = Math.random() * (window.innerHeight - 80);
@@ -84,12 +86,17 @@ noBtn.style.left = x + "px";
 noBtn.style.top = y + "px";
 });
 
-yesBtn.addEventListener("click", () => {
+yesBtn.addEventListener("click", async () => {
 
-bgMusic.play();
+try {
+await bgMusic.play();
+} catch (e) {
+console.log("Music autoplay blocked");
+}
 
 showScene(birthdayIntro);
 });
+
 
 /* =========================
 18 REASONS
@@ -152,7 +159,7 @@ const div = document.createElement("div");
 
 div.className = "reason";
 
-div.innerHTML = ``${index+1}. ${reasons[index]}`;
+div.innerHTML = ```${index+1}. ${reasons[index]}`;
 
 reasonsBox.appendChild(div);
 
@@ -390,3 +397,4 @@ if(e.target === viewer){
 viewer.style.display = "none";
 }
 });
+
