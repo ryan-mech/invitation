@@ -1,5 +1,5 @@
 /* ====================================
-   GLOBAL SETTINGS
+GLOBAL SETTINGS
 ==================================== */
 
 *{
@@ -23,7 +23,7 @@ body{
 }
 
 /* ====================================
-   SCENES
+SCENES (FIXED CORE ISSUE)
 ==================================== */
 
 .scene{
@@ -45,7 +45,9 @@ body{
     padding:20px;
 }
 
-.scene.active{
+/* 🔥 FIX: ensures at least one scene always shows safely */
+.scene.active,
+.scene:first-of-type{
 
     display:flex;
 
@@ -53,7 +55,7 @@ body{
 }
 
 /* ====================================
-   ANIMATIONS
+ANIMATIONS
 ==================================== */
 
 @keyframes fadeIn{
@@ -71,32 +73,19 @@ body{
 
 @keyframes pulse{
 
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.05);
-    }
-
-    100%{
-        transform:scale(1);
-    }
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.05); }
+    100%{ transform:scale(1); }
 }
 
 @keyframes spin{
 
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
 }
 
 /* ====================================
-   GLASS CARDS
+GLASS CARDS
 ==================================== */
 
 .card,
@@ -118,17 +107,15 @@ body{
 
 .card h1,
 .letterCard h1{
-
     margin-bottom:20px;
 }
 
 .card p{
-
     line-height:1.8;
 }
 
 /* ====================================
-   BUTTONS
+BUTTONS
 ==================================== */
 
 button{
@@ -149,7 +136,6 @@ button{
 }
 
 button:hover{
-
     transform:scale(1.08);
 }
 
@@ -162,104 +148,73 @@ button:hover{
 }
 
 #noBtn{
-
     background:#ececec;
     color:#333;
 }
 
 /* ====================================
-   TITLES
+TITLES
 ==================================== */
 
 .bigTitle{
-
     font-size:3rem;
     margin-bottom:20px;
 }
 
 .subtitle{
-
     font-size:1.2rem;
     line-height:1.8;
     margin-bottom:30px;
 }
 
 .endText{
-
     font-size:4rem;
-
     animation:pulse 2s infinite;
 }
+
 /* ====================================
-   18 REASONS PAGE
+18 REASONS
 ==================================== */
 
 .reasonsContainer{
-
     width:90%;
     max-width:900px;
 }
 
-.reasonsContainer h1{
-
-    margin-bottom:30px;
-}
-
 #reasonsBox{
-
     max-height:65vh;
-
     overflow:hidden;
-
     text-align:left;
-
     padding:20px;
-
     line-height:2;
-
     font-size:1.15rem;
-
     background:rgba(255,255,255,0.12);
-
     border-radius:20px;
 }
 
 .reason{
-
     margin-bottom:25px;
-
     animation:fadeIn .8s ease;
 }
 
 /* ====================================
-   MEMORY LANE
+MEMORY LANE
 ==================================== */
 
 .memoryContainer{
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
-    width:100%;
 }
 
 #memoryImage{
-
     width:75vw;
-
     max-width:340px;
-
     max-height:60vh;
-
     object-fit:cover;
 
     border:10px solid white;
-
     border-radius:20px;
 
     box-shadow:0 10px 25px rgba(0,0,0,.35);
@@ -268,54 +223,39 @@ button:hover{
 }
 
 #memoryCaption{
-
     max-width:700px;
-
     min-height:90px;
-
     font-size:1.15rem;
-
     line-height:1.8;
-
     padding:10px;
 }
 
 /* ====================================
-   LETTER PAGE
+LETTER PAGE
 ==================================== */
 
 #typedLetter{
-
     text-align:left;
-
     line-height:2;
-
     font-size:1.05rem;
-
     white-space:pre-line;
 }
 
 /* ====================================
-   FINAL PORTRAIT PAGE
+PORTRAIT
 ==================================== */
 
 .portraitContainer{
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 }
 
 .portrait{
-
     width:320px;
-
     max-width:85vw;
 
     border-radius:30px;
-
     border:8px solid rgba(255,255,255,.85);
 
     box-shadow:0 15px 40px rgba(0,0,0,.35);
@@ -323,22 +263,15 @@ button:hover{
     margin-bottom:25px;
 }
 
-.portraitContainer h1{
-
-    font-size:3rem;
-}
-
 /* ====================================
-   LOADING PAGE
+LOADER
 ==================================== */
 
 .loader{
-
     width:70px;
     height:70px;
 
     border:8px solid rgba(255,255,255,.3);
-
     border-top:8px solid white;
 
     border-radius:50%;
@@ -347,47 +280,34 @@ button:hover{
 
     margin-top:25px;
 }
+
 /* ====================================
-   MEMORY ALBUM
+ALBUM
 ==================================== */
 
 #albumPage{
-
     flex-direction:column;
-
     overflow-y:auto;
-
     padding-top:40px;
 }
 
 .albumTitle{
-
     margin-bottom:30px;
-
     font-size:2.2rem;
 }
 
 #albumContainer{
-
     position:relative;
-
     width:100%;
-
     min-height:1800px;
 }
 
-/* ====================================
-   POLAROID PHOTOS
-==================================== */
+/* POLAROIDS */
 
 .polaroid{
-
     width:220px;
-
     background:white;
-
     padding:12px 12px 25px;
-
     border-radius:10px;
 
     position:absolute;
@@ -395,189 +315,68 @@ button:hover{
     box-shadow:0 8px 20px rgba(0,0,0,.25);
 
     cursor:pointer;
-
     transition:.3s;
 }
 
 .polaroid:hover{
-
     transform:scale(1.08);
-
     z-index:999;
 }
 
 .polaroid img{
-
     width:100%;
-
     display:block;
-
     border-radius:5px;
 }
 
 .polaroid p{
-
     color:#333;
-
     margin-top:12px;
-
     font-size:.9rem;
-
     text-align:center;
-
-    line-height:1.5;
 }
 
-/* ====================================
-   SCRAPBOOK POSITIONS
-==================================== */
-
-.polaroid:nth-child(1){
-    top:50px;
-    left:8%;
-    transform:rotate(-7deg);
-}
-
-.polaroid:nth-child(2){
-    top:140px;
-    left:55%;
-    transform:rotate(6deg);
-}
-
-.polaroid:nth-child(3){
-    top:360px;
-    left:22%;
-    transform:rotate(-4deg);
-}
-
-.polaroid:nth-child(4){
-    top:320px;
-    left:68%;
-    transform:rotate(8deg);
-}
-
-.polaroid:nth-child(5){
-    top:620px;
-    left:10%;
-    transform:rotate(5deg);
-}
-
-.polaroid:nth-child(6){
-    top:760px;
-    left:55%;
-    transform:rotate(-8deg);
-}
-
-.polaroid:nth-child(7){
-    top:980px;
-    left:25%;
-    transform:rotate(4deg);
-}
-
-.polaroid:nth-child(8){
-    top:1100px;
-    left:68%;
-    transform:rotate(-6deg);
-}
-
-.polaroid:nth-child(9){
-    top:1350px;
-    left:10%;
-    transform:rotate(5deg);
-}
-
-.polaroid:nth-child(10){
-    top:1500px;
-    left:55%;
-    transform:rotate(-4deg);
-}
-
-.polaroid:nth-child(11){
-    top:1680px;
-    left:28%;
-    transform:rotate(3deg);
-}
-
-/* ====================================
-   FULL SCREEN VIEWER
-==================================== */
+/* FULLSCREEN VIEWER */
 
 #viewer{
-
     position:fixed;
-
     inset:0;
-
     background:rgba(0,0,0,.95);
 
     display:none;
-
     justify-content:center;
-
     align-items:center;
 
     z-index:9999;
 }
 
 #viewerImage{
-
     max-width:90%;
-
     max-height:90%;
-
     border-radius:15px;
-
-    box-shadow:0 0 30px rgba(255,255,255,.15);
 }
 
 #closeViewer{
-
     position:absolute;
-
     top:25px;
-
     right:25px;
-
     font-size:2rem;
-
     cursor:pointer;
-
-    color:white;
 }
 
 /* ====================================
-   MOBILE RESPONSIVE
+MOBILE FIX
 ==================================== */
 
 @media(max-width:768px){
 
-    .bigTitle{
+    .bigTitle{ font-size:2rem; }
 
-        font-size:2rem;
-    }
+    .portraitContainer h1{ font-size:2rem; }
 
-    .portraitContainer h1{
+    .endText{ font-size:2.5rem; }
 
-        font-size:2rem;
-    }
+    #memoryImage{ width:80vw; }
 
-    .endText{
-
-        font-size:2.5rem;
-    }
-
-    #memoryImage{
-
-        width:80vw;
-    }
-
-    .polaroid{
-
-        width:170px;
-    }
-
-    #albumContainer{
-
-        min-height:2200px;
-    }
+    .polaroid{ width:170px; }
 }
