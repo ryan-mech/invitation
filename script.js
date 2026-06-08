@@ -1,211 +1,121 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-/* =========================
-SCENES
-========================= */
-
 const scenes = document.querySelectorAll(".scene");
 
-function showScene(scene) {
+function show(id){
   scenes.forEach(s => s.classList.remove("active"));
-  scene.classList.add("active");
+  document.getElementById(id).classList.add("active");
 }
 
-/* =========================
-ELEMENTS
-========================= */
+const music = document.getElementById("bgMusic");
+music.volume = 0.5;
 
-const apologyPage = document.getElementById("apologyPage");
-const birthdayIntro = document.getElementById("birthdayIntro");
-const reasonsPage = document.getElementById("reasonsPage");
-const memoryLane = document.getElementById("memoryLane");
-const letterPage = document.getElementById("letterPage");
-const finalBirthday = document.getElementById("finalBirthday");
-const theEnd = document.getElementById("theEnd");
-const loadingPage = document.getElementById("loadingPage");
-const albumPage = document.getElementById("albumPage");
+/* APOLOGY */
+document.getElementById("yes").onclick = async () => {
+  try{ await music.play(); } catch(e){}
+  show("intro");
+};
 
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-const startJourney = document.getElementById("startJourney");
-const albumBtn = document.getElementById("albumBtn");
+document.getElementById("no").onmouseover = () => {
+  const b = document.getElementById("no");
+  b.style.left = Math.random()*80 + "vw";
+  b.style.top = Math.random()*80 + "vh";
+};
 
-const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 0.5;
+/* START */
+document.getElementById("start").onclick = () => {
+  show("reasons");
+  startReasons();
+};
 
-/* =========================
-NO BUTTON ESCAPE FIX
-========================= */
+const reasons = Array.from({length:18}, (_,i)=>
+`Reason ${i+1}: You are special ❤️`
+);
 
-let scale = 1;
+function startReasons(){
+  let i=0;
+  const box = document.getElementById("reasonBox");
+  box.innerHTML="";
 
-noBtn.addEventListener("mouseover", () => {
-  scale = Math.min(scale + 0.15, 2);
-
-  yesBtn.style.transform = `scale(${scale})`;
-
-  const x = Math.random() * (window.innerWidth - 120);
-  const y = Math.random() * (window.innerHeight - 80);
-
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-});
-
-/* =========================
-YES BUTTON
-========================= */
-
-yesBtn.addEventListener("click", async () => {
-  try {
-    await bgMusic.play();
-  } catch (e) {
-    console.log("Autoplay blocked");
-  }
-  showScene(birthdayIntro);
-});
-
-/* =========================
-REASONS
-========================= */
-
-const reasons = [
-  "Your smile makes people feel safe.",
-  "Your kindness shows in small actions.",
-  "You have a strong and calm personality.",
-  "You make conversations meaningful.",
-  "You keep going even when things are hard.",
-  "You inspire people without trying.",
-  "You have a unique way of seeing life.",
-  "You value people who matter.",
-  "You grow stronger every year.",
-  "You are genuinely one of a kind."
-];
-
-function startReasons() {
-  showScene(reasonsPage);
-
-  const box = document.getElementById("reasonsBox");
-  box.innerHTML = "";
-
-  let i = 0;
-
-  const interval = setInterval(() => {
-    if (i >= reasons.length) {
-      clearInterval(interval);
-      setTimeout(startMemoryLane, 2000);
+  let t = setInterval(()=>{
+    if(i>=reasons.length){
+      clearInterval(t);
+      setTimeout(startMemory,1000);
       return;
     }
-
-    const div = document.createElement("div");
-    div.className = "reason";
-    div.textContent = `${i + 1}. ${reasons[i]}`;
-
-    box.appendChild(div);
-    div.scrollIntoView({ behavior: "smooth" });
-
+    let d=document.createElement("div");
+    d.innerText=reasons[i];
+    box.appendChild(d);
     i++;
-  }, 1500);
+  },600);
 }
 
-startJourney.addEventListener("click", startReasons);
-
-/* =========================
-MEMORY LANE
-========================= */
-
-const memories = [
-  { img: "Images/IMG-20220918-WA0010.jpg", caption: "First memories together." },
-  { img: "Images/Screenshot_20220902-114252_WhatsApp.jpg", caption: "Our Onam memory." },
-  { img: "Images/IMG-20231129-WA0002.jpg", caption: "First trip together." }
+/* MEMORY */
+const memories=[
+"Images/IMG-20220918-WA0010.jpg",
+"Images/Screenshot_20220902-114252_WhatsApp.jpg",
+"Images/IMG-20231129-WA0002.jpg"
 ];
 
-function startMemoryLane() {
-  showScene(memoryLane);
+let memIndex=0;
 
-  let i = 0;
+function startMemory(){
+  show("memory");
+  nextMem();
+}
 
-  const img = document.getElementById("memoryImage");
-  const cap = document.getElementById("memoryCaption");
-
-  function next() {
-    if (i >= memories.length) {
-      startLetter();
-      return;
-    }
-
-    img.src = memories[i].img;
-    cap.textContent = memories[i].caption;
-
-    i++;
-    setTimeout(next, 2500);
+function nextMem(){
+  if(memIndex>=memories.length){
+    startLetter();
+    return;
   }
 
-  next();
+  document.getElementById("memImg").src=memories[memIndex];
+  document.getElementById("memText").innerText="Memory ❤️";
+
+  memIndex++;
+  setTimeout(nextMem,2000);
 }
 
-/* =========================
-LETTER
-========================= */
+/* LETTER */
+function startLetter(){
+  show("letter");
+  let text="Thank you for everything ❤️";
+  let i=0;
 
-function startLetter() {
-  showScene(letterPage);
-
-  const text = `Hi Nada,
-Thank you for everything.
-These memories will stay forever.`;
-
-  const box = document.getElementById("typedLetter");
-  box.innerHTML = "";
-
-  let i = 0;
-
-  const interval = setInterval(() => {
-    box.innerHTML += text[i];
+  let t=setInterval(()=>{
+    document.getElementById("letterText").innerHTML += text[i];
     i++;
-
-    if (i >= text.length) {
-      clearInterval(interval);
-
-      setTimeout(() => {
-        showScene(finalBirthday);
-
-        setTimeout(() => {
-          showScene(theEnd);
-        }, 4000);
-      }, 2000);
+    if(i>=text.length){
+      clearInterval(t);
+      setTimeout(()=>show("end"),1500);
     }
-  }, 40);
+  },50);
 }
 
-/* =========================
-ALBUM
-========================= */
+/* ALBUM */
+document.getElementById("album").onclick = () => {
+  show("album");
 
-albumBtn.addEventListener("click", () => {
-  showScene(loadingPage);
+  const imgs=[
+    "Images/IMG-20220918-WA0010.jpg",
+    "Images/IMG-20231129-WA0002.jpg"
+  ];
 
-  setTimeout(() => {
-    showScene(albumPage);
-  }, 2000);
-});
+  let grid=document.getElementById("grid");
+  grid.innerHTML="";
 
-/* =========================
-VIEWER
-========================= */
-
-document.querySelectorAll(".polaroid").forEach(card => {
-  card.addEventListener("click", () => {
-    const viewer = document.getElementById("viewer");
-    const viewerImage = document.getElementById("viewerImage");
-
-    viewer.style.display = "flex";
-    viewerImage.src = card.dataset.img;
+  imgs.forEach(src=>{
+    let img=document.createElement("img");
+    img.src=src;
+    img.onclick=()=>open(img.src);
+    grid.appendChild(img);
   });
-});
+};
 
-document.getElementById("closeViewer").addEventListener("click", () => {
-  document.getElementById("viewer").style.display = "none";
-});
+function open(src){
+  document.getElementById("viewer").style.display="flex";
+  document.getElementById("viewerImg").src=src;
+}
 
-});
-
+document.getElementById("viewer").onclick=()=>{
+  document.getElementById("viewer").style.display="none";
+};
